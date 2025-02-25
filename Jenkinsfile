@@ -12,10 +12,10 @@ pipeline {
             steps {
                 script {
                     // Jenkins sets BRANCH_NAME for multibranch pipelines.
-                    if (env.BRANCH_NAME == 'main') {
+                    if (env.BRANCH_NAME == 'origin/main') {
                         // For the master branch, simply run the script.
                         echo "Running myapp.py on master branch..."
-                        sh 'python myapp.py'
+                        sh 'python main.py'
                     } else if (env.BRANCH_NAME?.startsWith("feature")) {
                         // For any branch starting with "feature", run the script and then fail intentionally.
                         echo "Running myapp.py on a feature branch..."
